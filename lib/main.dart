@@ -23,17 +23,21 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text('Flutter App')),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Card(
-            margin: EdgeInsets.all(20),
+            margin: EdgeInsets.all(10),
             color: Colors.blue,
             child: Container(
+              padding: EdgeInsets.all(10),
               width: double.infinity,
               child: Text('CHART!!'),
             ),
             elevation: 5,
           ),
           Card(
+            color: Colors.red,
             child: Text('List of TX'),
           ),
         ],
