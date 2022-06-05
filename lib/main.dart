@@ -62,7 +62,7 @@ class MyHomePage extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                             fontSize: 20,
                             color: Colors.purple),
-                        tx.amount.toString(),
+                        '\$${tx.amount}',
                       ),
                     ),
                     Column(
@@ -70,12 +70,14 @@ class MyHomePage extends StatelessWidget {
                       children: [
                         Text(
                             style: TextStyle(
+                                fontSize: 16,
                                 fontWeight: FontWeight.w500,
                                 color: Color.fromARGB(255, 85, 84, 84)),
                             tx.title),
                         Text(
                             style: TextStyle(
-                                color: Color.fromARGB(255, 85, 84, 84)),
+                                color: Color.fromARGB(255, 85, 84, 84),
+                                fontSize: 10),
                             tx.date.toString())
                       ],
                     )
