@@ -28,12 +28,15 @@ class MyHomePage extends StatelessWidget {
     Transaction(id: 't1', title: 'PS5', amount: 499, date: DateTime.now()),
   ];
 
+  String? titleInput;
+  String? amountInput;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Flutter App')),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        // mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Card(
@@ -45,6 +48,36 @@ class MyHomePage extends StatelessWidget {
               child: Text('CHART!!'),
             ),
             elevation: 5,
+          ),
+          Card(
+            elevation: 5,
+            child: Container(
+              margin: EdgeInsets.all(10),
+              padding: EdgeInsets.all(10),
+              child:
+                  Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
+                TextField(
+                  decoration: InputDecoration(labelText: 'Title'),
+                  onChanged: (value) {
+                    titleInput = value;
+                  },
+                ),
+                TextField(
+                  decoration: InputDecoration(labelText: 'Amount'),
+                  onChanged: (value) {
+                    amountInput = value;
+                  },
+                ),
+                FlatButton(
+                  textColor: Colors.purple,
+                  onPressed: () {
+                    print(titleInput);
+                    print(amountInput);
+                  },
+                  child: Text('Add Transaction'),
+                )
+              ]),
+            ),
           ),
           Column(
             children: transactions.map((tx) {
