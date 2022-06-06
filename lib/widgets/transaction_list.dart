@@ -1,10 +1,7 @@
-// ignore_for_file: prefer_const_constructors
-// ignore_for_file: use_key_in_widget_constructors
-// ignore_for_file: sized_box_for_whitespace
-// ignore_for_file: sort_child_properties_last
 import 'package:flutter/material.dart';
-import '../models/transaction.dart';
 import 'package:intl/intl.dart';
+
+import '../models/transaction.dart';
 
 class TransactionList extends StatelessWidget {
   final List<Transaction> transactions;
@@ -14,42 +11,51 @@ class TransactionList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 250,
+      height: 300,
       child: ListView.builder(
-        itemBuilder: (context, index) {
+        itemBuilder: (ctx, index) {
           return Card(
             child: Row(
-              children: [
+              children: <Widget>[
                 Container(
-                  padding: EdgeInsets.all(10),
-                  margin: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                  margin: EdgeInsets.symmetric(
+                    vertical: 10,
+                    horizontal: 15,
+                  ),
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: Colors.purple, width: 2)),
+                    border: Border.all(
+                      color: Colors.purple,
+                      width: 2,
+                    ),
+                  ),
+                  padding: EdgeInsets.all(10),
                   child: Text(
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                        color: Colors.purple),
                     '\$${transactions[index].amount.toStringAsFixed(2)}',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      color: Colors.purple,
+                    ),
                   ),
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+                  children: <Widget>[
                     Text(
-                        style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
-                            color: Color.fromARGB(255, 85, 84, 84)),
-                        transactions[index].title),
+                      transactions[index].title,
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                     Text(
-                        style: TextStyle(
-                            color: Color.fromARGB(255, 85, 84, 84),
-                            fontSize: 10),
-                        DateFormat.yMMMMd().format(transactions[index].date))
+                      DateFormat.yMMMd().format(transactions[index].date),
+                      style: TextStyle(
+                        color: Colors.grey,
+                      ),
+                    ),
                   ],
-                )
+                ),
               ],
             ),
           );
