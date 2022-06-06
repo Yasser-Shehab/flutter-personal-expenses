@@ -30,22 +30,23 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Flutter App')),
-      body: Column(
-        // mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Card(
-            margin: EdgeInsets.all(10),
-            color: Colors.blue,
-            child: Container(
-              padding: EdgeInsets.all(10),
-              width: double.infinity,
-              child: Text('CHART!!'),
+      body: SingleChildScrollView(
+        child: Column(
+          // mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Card(
+              color: Colors.blue,
+              child: Container(
+                padding: EdgeInsets.all(4),
+                width: double.infinity,
+                child: Text('CHART!!'),
+              ),
+              elevation: 5,
             ),
-            elevation: 5,
-          ),
-          UserTransactions()
-        ],
+            UserTransactions()
+          ],
+        ),
       ),
     );
   }
